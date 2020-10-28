@@ -1,0 +1,51 @@
+// Example IDL file for our monster's schema.
+
+namespace GasBoil;
+
+enum CommandType:byte 
+{ 
+      // System
+    CommandType_Reset = 1,
+    CommandType_Save,
+    CommandType_Factory,
+    CommandType_GetVersion,
+
+    // Status
+
+    // Trigger table
+    CommandType_Trigger_GetSize,
+    CommandType_Trigger_GetCapacity,
+    CommandType_Trigger_Add,
+    CommandType_Trigger_Remove,
+    CommandType_Trigger_ClearAll,
+    CommandType_Trigger_Get,
+    CommandType_Trigger_Set,
+
+    // Action table
+    CommandType_Action_GetSize,
+    CommandType_Action_GetCapacity,
+    CommandType_Action_Add,
+    CommandType_Action_Remove,
+    CommandType_Action_ClearAll,
+    CommandType_Action_Get,
+    CommandType_Action_Set,
+
+    // Encoder table
+    CommandType_Encoder_GetSize,
+    CommandType_Encoder_GetCapacity,
+    CommandType_Encoder_Add,
+    CommandType_Encoder_Remove,
+    CommandType_Encoder_ClearAll,
+    CommandType_Encoder_Get,
+    CommandType_Encoder_Set
+}
+
+
+table Message {
+  type: CommandType = CommandType_Trigger_GetSize;
+  ack: short;
+  dataSize: short;
+  data: [byte];
+}
+
+root_type Message;

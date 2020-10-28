@@ -1,0 +1,6 @@
+*.log
+*.user
+*.csv
+*.tasks
+strace_out
+*.json
